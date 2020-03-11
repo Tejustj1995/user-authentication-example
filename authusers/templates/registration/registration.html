@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div align="center">
+    <h1>REGISTRATION PAGE</h1>
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+
+        <h4>{{ form }}</h4>
+         {% if request.GET.next %}
+        <input type="hidden" name="next" value="{{ request.GET.next }}"/>
+        {% endif %}
+        <input type="submit"  value="Register"/>
+    </form>
+</div>
+</body>
+</html>
